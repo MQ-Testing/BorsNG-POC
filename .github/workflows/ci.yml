@@ -1,10 +1,9 @@
-ci-success:
-  name: ci
-  if: ${{ success() }}
-  needs:
-    - exfmt
-    - test
-  runs-on: ubuntu-latest
-  steps:
-    - name: CI succeeded
-      run: exit 0
+name: ci
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
